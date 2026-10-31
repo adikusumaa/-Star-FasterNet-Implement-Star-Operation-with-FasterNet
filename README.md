@@ -116,6 +116,14 @@ Uses the Multi-Criteria Decision Making (MCDM) framework with Simple Additive We
 | Star-FasterNet Case II | 1.777382 | 0.206782 | 20.81 | 46.55 | 9.70 | 0.9117 | 0.9054 |
 | Star-FasterNet Case III | **1.353382** | **0.141553** | **15.09** | **44.23** | **7.87** | **0.9950** | **0.9897** |
 
+### Performance Comparison Visualization
+
+<div align="center">
+<img src="img/arm_comparison_plot.png" width="900" />
+<br/>
+<em>Performance comparison of all models on Mobile ARM across GFLOPs, Inference Latency, and Memory Usage.</em>
+</div>
+
 ### Statistical Tests
 
 | Parameter | Test | Value | Threshold | Conclusion |
@@ -142,7 +150,8 @@ Uses the Multi-Criteria Decision Making (MCDM) framework with Simple Additive We
     │   ├── Arsitektur Star FasterNet.png
     │   ├── Cortax A75 Architecture.png
     │   ├── Flow Model Develop.png
-    │   └── Params Each Model.png
+    │   ├── Params Each Model.png
+    │   └── arm_comparison_plot.png
     ├── configs/
     │   ├── mobilenetv3.yaml
     │   ├── fasternet.yaml
