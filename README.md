@@ -30,27 +30,23 @@ This research combines **Partial Convolution (PConv)** from FasterNet with **Sta
 
 ---
 
-## Key Highlights & Interface Preview
+## Hardware & Research Workflow
 
-*(Placeholder for Android benchmark application screenshots and result visualizations. Images will be added after repository publication.)*
+### 1. Research Development Flow
+The overall workflow of model development, training, evaluation, and mobile deployment.
 
-| Android Benchmark App | Confusion Matrix Visualization |
+<div align="center">
+<img src="img/Flow Model Develop.png" width="900" />
+<br/>
+<em>Model Development and Evaluation Flowchart.</em>
+</div>
+
+### 2. Hardware Architecture
+Evaluation is performed on an Android mobile device powered by ARM architecture.
+
+| CPU Architecture (ARM Cortex-A75) | Smartphone SoC Architecture (Realme 5 Pro) |
 | :---: | :---: |
-| `img/android_benchmark.png` | `img/confusion_matrix.png` |
-
----
-
-## Research Impact
-
-| Metric | Baseline (MobileNetV3) | Star-FasterNet Case III | Improvement |
-| :--- | :--- | :--- | :--- |
-| ARM latency | 48.33 ms | 15.09 ms | 3.2× faster |
-| CPU usage | 47.22% | 44.23% | 6.3% lower |
-| Memory usage | 19.83 MB | 7.87 MB | 2.5× more efficient |
-| Params | 4.20 M | 1.35 M | 3.1× smaller |
-| GFLOPs | 0.234 G | 0.142 G | 1.6× lighter |
-| Efficiency score (YAWDD) | 0.7729 | 0.9950 | +28.7% |
-| Efficiency score (UTA-RLDD) | 0.7729 | 0.9897 | +28.0% |
+| <img src="img/Cortax A75 Architecture.png" width="420" /><br/>*ARM Cortex-A75 core architecture* | <img src="img/ARM Realme 5 Pro Architecture.png" width="420" /><br/>*Qualcomm Snapdragon 712 AIE SoC architecture* |
 
 ---
 
@@ -62,6 +58,12 @@ This research combines **Partial Convolution (PConv)** from FasterNet with **Sta
 - **Star-FasterNet Case I** – PConv + full two-branch Star Operation (W₁ᵀX+B₁) ★ (W₂ᵀX+B₂).
 - **Star-FasterNet Case II** – PConv + one-branch Star Operation (W₁ᵀX+B₁) ★ X.
 - **Star-FasterNet Case III** – PConv + identity Star Operation X ★ X without additional parameters.
+
+<div align="center">
+<img src="img/Arsitektur Star FasterNet.png" width="900" />
+<br/>
+<em>Star-FasterNet Hybrid Architecture Overview.</em>
+</div>
 
 ### 2. Training Pipeline
 - Subject-wise 5-Fold Cross Validation (70% train, 20% validation, 10% test).
@@ -100,6 +102,12 @@ Uses the Multi-Criteria Decision Making (MCDM) framework with Simple Additive We
 
 ### Mobile ARM Computational Efficiency
 
+<div align="center">
+<img src="img/Params Each Model.png" width="800" />
+<br/>
+<em>Parameter Comparison Across Models.</em>
+</div>
+
 | Model | Params (M) | GFLOPs | Latency (ms) | CPU (%) | Memory (MB) | Eff. YAWDD | Eff. UTA-RLDD |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | MobileNetV3 | 4.204594 | 0.233561 | 48.33 | 47.22 | 19.83 | 0.7729 | 0.7729 |
@@ -129,6 +137,12 @@ Uses the Multi-Criteria Decision Making (MCDM) framework with Simple Additive We
     ├── requirements.txt
     ├── .gitignore
     ├── LICENSE
+    ├── img/
+    │   ├── ARM Realme 5 Pro Architecture.png
+    │   ├── Arsitektur Star FasterNet.png
+    │   ├── Cortax A75 Architecture.png
+    │   ├── Flow Model Develop.png
+    │   └── Params Each Model.png
     ├── configs/
     │   ├── mobilenetv3.yaml
     │   ├── fasternet.yaml
@@ -162,11 +176,8 @@ Uses the Multi-Criteria Decision Making (MCDM) framework with Simple Additive We
     │   └── logs/
     ├── android/
     │   └── README_android.md
-    ├── docs/
-    │   ├── images/
-    │   └── paper/
-    └── tests/
-        └── README_tests.md
+    └── docs/
+        └── paper/
 
 ---
 
